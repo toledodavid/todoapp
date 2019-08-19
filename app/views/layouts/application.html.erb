@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-item" style="">
+          <li class="nav-item">
             <button class="btn btn-sm btn-danger" type="button">
               <%= link_to 'Log out', destroy_user_session_path, style: 'color:white; text-decoration:none; display:block', method: :delete %>
             </button>
