@@ -1,9 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @todolist.title %>
-</p>
+</h1>
 
 <%= link_to 'Edit', edit_todolist_path(@todolist) %> |
 <%= link_to 'Back', todolists_path %>
+
+<br><br>
+<h2>Add task</h2>
+<%= form_with(model: [ @todolist, @todolist.tasks.build ], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+      <%= form.submit %>
+  </div>
+<% end %>
