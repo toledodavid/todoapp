@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @todolists.each do |todolist| %>
+    <% current_user.todolists.each do |todolist| %>
       <tr>
         <td><%= todolist.title %></td>
         <td><%= link_to 'Show', todolist %></td>
