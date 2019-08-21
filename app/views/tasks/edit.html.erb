@@ -1,0 +1,22 @@
+<h1>Edit task: <%= @task.title%></h1>
+
+<%= link_to 'Back', todolist_path(@todolist) %>
+
+
+<%= form_with(model:[@todolist, @todolist.tasks.find(@task.id)], local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.check_box :status %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
