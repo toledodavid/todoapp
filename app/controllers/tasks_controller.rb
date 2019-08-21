@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def edit
     @todolist = Todolist.find(params[:todolist_id])
-    @task = Task.find(params[:id])
+    @task = @todolist.tasks.find(params[:id])
   end
 
   def create
@@ -12,8 +12,15 @@ class TasksController < ApplicationController
 
   def update
     @todolist = Todolist.find(params[:todolist_id])
-    @task = Task.find(params[:id])
+    @task = @todolist.tasks.find(params[:id])
     @task.update(task_params)
+    redirect_to todolist_path(@todolist)
+  end
+
+  def destroy
+    @todolist = Todolist.find(params[:todolist_id])
+    @task = @todolist.tasks.find(params[:id])
+    @task.destroy
     redirect_to todolist_path(@todolist)
   end
 
