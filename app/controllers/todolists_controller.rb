@@ -11,6 +11,10 @@ class TodolistsController < ApplicationController
   # GET /todolists/1
   # GET /todolists/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.csv { send_data @todolist.tasks.to_csv(['title','description']) }
+    end
   end
 
   # GET /todolists/new

@@ -7,20 +7,26 @@
 <%= link_to 'Back', todolists_path, class: 'btn btn-light btn-sm' %>
 <%= link_to 'Edit', edit_todolist_path(@todolist), class: 'btn btn-info btn-sm' %>
 
+<hr>
 
-<br><br>
+<h2>Tasks</h2>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newTaskModal">
   New task
 </button>
-
 <br><br>
-<h2>Tasks</h2>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= link_to "Export CSV", todolist_path(@todolist, format: "csv"), class: 'btn btn-primary btn-sm' %>
+  </li>
+</ul>
+
 <% @todolist.tasks.each do |task| %>
 <div class="card my-2">
   <div class="card-header">
     <div class="row">
-      <div class="col-9 text-dark">
+      <div class="col-10 text-dark">
         <h5><%= task.title %></h5>
       </div>
       <div class="col-1">
