@@ -1,22 +1,28 @@
-<%= form_with(model: todolist, local: true) do |form| %>
-  <% if todolist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(todolist.errors.count, "error") %> prohibited this todolist from being saved:</h2>
 
-      <ul>
-      <% todolist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <%= form_with(model: todolist, local: true) do |form| %>
+      <% if todolist.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(todolist.errors.count, "error") %> prohibited this todolist from being saved:</h2>
+
+          <ul>
+          <% todolist.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <%= form.submit 'Create Todolist', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
