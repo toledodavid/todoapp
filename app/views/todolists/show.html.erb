@@ -4,8 +4,8 @@
   <%= @todolist.title %>
 </h1>
 
-<%= link_to 'Edit', edit_todolist_path(@todolist) %> |
-<%= link_to 'Back', todolists_path %>
+<%= link_to 'Back', todolists_path, class: 'btn btn-light btn-sm' %>
+<%= link_to 'Edit', edit_todolist_path(@todolist), class: 'btn btn-info btn-sm' %>
 
 
 <br><br>
@@ -15,8 +15,29 @@
 </button>
 
 <br><br>
-
 <h2>Tasks</h2>
+<% @todolist.tasks.each do |task| %>
+<div class="card my-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-9 text-dark">
+        <h5><%= task.title %></h5>
+      </div>
+      <div class="col-1">
+        <%= link_to 'Edit', edit_todolist_task_path(@todolist, task), class: 'btn btn-primary btn-sm' %>
+      </div>
+      <div class="col-1">
+        <%= link_to 'Destroy', [task.todolist, task], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text text-dark"><%= task.description %></p>
+  </div>
+</div>
+<% end %>
+
+<!-- h2>Tasks</h2>
 <table>
   <thead>
     <tr>
@@ -37,7 +58,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table -->
 
 <!-- Modal -->
 <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-labelledby="newTaskModalLabel" aria-hidden="true">
