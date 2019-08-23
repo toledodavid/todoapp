@@ -1,22 +1,27 @@
 <h1>Edit task: <%= @task.title%></h1>
 
-<%= link_to 'Back', todolist_path(@todolist) %>
+<%= link_to 'Back', todolist_path(@todolist), class: 'btn btn-light btn-sm' %>
+<hr>
 
+<div class="row">
+  <div class="col-12 col-md-6">
+    <%= form_with(model:[@todolist, @todolist.tasks.find(@task.id)], local: true) do |form| %>
+      <div class="field form-group">
+        <%= form.label :title %><br>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= form.check_box :status, class: 'form-control' %>
+      </div>
 
-<%= form_with(model:[@todolist, @todolist.tasks.find(@task.id)], local: true) do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-  <p>
-    <%= form.check_box :status %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
+      <div class="actions">
+        <%= form.submit 'Edit task', class: 'btn btn-primary' %>
+      </div>
+    
+    <% end %>
+  </div>
+</div>
