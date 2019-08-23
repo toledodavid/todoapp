@@ -14,6 +14,7 @@ class TodolistsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @todolist.tasks.to_csv(['title','description']) }
+      format.pdf { render template: 'tasks/tasksreport', pdf: 'Tasks' }
     end
   end
 

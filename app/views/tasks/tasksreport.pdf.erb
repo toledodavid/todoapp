@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+</head>
+<body class="main-content">
+
+  <h1 class="display-3 text-center titleList"><%= @todolist.title %></h1>
+  <br>
+  <div class="contentTable">
+    <table class="table table-striped">
+      <thead>
+        <tr class="bg-primary" style="color:white">
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @todolist.tasks.each do |task| %>
+          <tr>
+            <th scope="row"><%= task.title %></th>
+            <td><%= task.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

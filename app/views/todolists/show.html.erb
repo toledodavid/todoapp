@@ -17,8 +17,11 @@
 </button>
 <br><br>
 <ul class="nav justify-content-end">
-  <li class="nav-item">
+  <li class="nav-item mx-1">
     <%= link_to "Export CSV", todolist_path(@todolist, format: "csv"), class: 'btn btn-primary btn-sm' %>
+  </li>
+  <li class="nav-item mx-1">
+    <%= link_to "PDF", todolist_path(@todolist, format: "pdf"), class: 'btn btn-danger btn-sm' %>
   </li>
 </ul>
 
