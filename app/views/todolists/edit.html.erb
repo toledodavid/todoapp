@@ -1,6 +1,9 @@
 <h1>Editing Todolist</h1>
 
+<%= link_to 'Back', todolists_path, class: 'btn btn-light btn-sm' %>
+<%= link_to 'Show', @todolist, class: 'btn btn-success btn-sm' %>
+
+<hr>
+
 <%= render 'form', todolist: @todolist %>
 
-<%= link_to 'Show', @todolist %> |
-<%= link_to 'Back', todolists_path %>
