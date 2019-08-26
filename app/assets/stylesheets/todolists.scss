@@ -6,3 +6,12 @@ hr{
   border-width: 3px !important;
   border-color: white !important;
 }
+.containe-img{
+  background-color: white;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 5%;
+  margin: 0 auto;
+}
