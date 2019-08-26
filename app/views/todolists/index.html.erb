@@ -6,7 +6,11 @@
 <div class="row align-items-center">
   <div class="col-12 col-md-2">
     <div class="containe-img">
-      <%= image_tag('avatar.png', style: 'width:100%;height:auto')%>
+      <% if current_user.photo.attached?%>
+        <%= image_tag(current_user.photo, style: 'width:100%;height:auto') %>
+      <% else %>
+        <%= image_tag('avatar.png', style: 'width:100%;height:auto')%>
+      <% end %>
     </div>
   </div>
   <div class="col-12 col-md-10">
