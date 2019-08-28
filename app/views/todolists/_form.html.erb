@@ -4,13 +4,12 @@
   <div class="col-12 col-md-6">
     <%= form_with(model: todolist, local: true) do |form| %>
       <% if todolist.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(todolist.errors.count, "error") %> prohibited this todolist from being saved:</h2>
-
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Oh, no!</h4>
           <ul>
-          <% todolist.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
+            <% todolist.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
           </ul>
         </div>
       <% end %>
@@ -18,6 +17,11 @@
       <div class="field form-group">
         <%= form.label :title %>
         <%= form.text_field :title, class: 'form-control' %>
+        <% if @todolist.errors[:title].any? %>
+          <span class="badge badge-danger">
+            <%= todolist.errors[:title].first %>
+          </span>
+        <% end %>
       </div>
 
       <div class="actions">
