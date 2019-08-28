@@ -58,6 +58,9 @@
         </button>
       </div>
       <div class="modal-body text-dark">
+        <div class="alert alert-info" role="alert">
+          Only allows letters and numbers in the fields.
+        </div>
         <%= form_with(model: [ @todolist, @todolist.tasks.build ], local: true) do |form| %>
           <div class="field">
             <%= form.label :title %>
