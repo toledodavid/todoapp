@@ -16,6 +16,7 @@ class TodolistsController < ApplicationController
       format.csv { send_data @todolist.tasks.to_csv(['title','description']) }
       format.pdf { render template: 'tasks/tasksreport', pdf: 'Tasks' }
     end
+    WeeklyJob.perform_later(current_user)
   end
 
   # GET /todolists/new
