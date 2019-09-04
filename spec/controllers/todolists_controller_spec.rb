@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe TodolistsController, type: :controller do
   login_user
 
+  it { should use_before_action(:authenticate_user!) }
+
   it 'is valid with a title' do
     # user = create(:user)
     todolist = subject.current_user.todolists.new(title: 'Title example')
