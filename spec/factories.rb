@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :tast do
+    title { 'Title 1' }
+    description { 'Description example' }
+  end
+
   factory :user do
     name { "John" }
     email  { "joe@gmail.com" }
