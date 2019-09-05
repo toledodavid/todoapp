@@ -45,4 +45,16 @@ RSpec.describe TodolistsController, type: :controller do
       expect(response).to be_successful
     end
   end
+
+  context 'POST #create' do
+    let!(:todolist) { FactoryBot.create(:todolist, user: subject.current_user) }
+
+    it 'create a new todolist' do
+      params = {
+        title: 'Title 1'
+      }
+      expect { post(:create, params: { todolist: params }) }.to change(Todolist, :count).by(1)
+      expect(flash[:notice]).to eq 'Todolist was successfully created.'
+    end
+  end
 end

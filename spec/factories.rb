@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :todolist do
+    title { 'Title example' }
+  end
+
   factory :tast do
     title { 'Title 1' }
     description { 'Description example' }
