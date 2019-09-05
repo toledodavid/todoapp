@@ -3,7 +3,7 @@ FactoryBot.define do
     title { 'Title example' }
   end
 
-  factory :tast do
+  factory :task do
     title { 'Title 1' }
     description { 'Description example' }
   end
