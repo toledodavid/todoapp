@@ -4,6 +4,6 @@ class WeeklyJob < ApplicationJob
   def perform(user)
     # Do something later
     @user_email = user.email
-    WeeklyMailer.submission(@user_email).deliver_later(wait_until: 1.minutes.from_now)
+    WeeklyMailer.submission(@user_email).deliver_later(wait_until: 5.days.from_now)
   end
 end
